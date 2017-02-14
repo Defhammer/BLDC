@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <executable name="dist/default/production/BLDC_encoder_firmware.X.production.elf">
+    <memory name="data">
+      <units>bytes</units>
+      <length>16384</length>
+      <used>310</used>
+      <free>16074</free>
+    </memory>
+    <memory name="program">
+      <units>bytes</units>
+      <length>65280</length>
+      <used>7491</used>
+      <free>57789</free>
+    </memory>
+  </executable>
+</project>

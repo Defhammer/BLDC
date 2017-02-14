@@ -226,7 +226,6 @@ int main(void) {
             i++;
         }
         
-        if()
         if (i == 41){
             i=0;
         }

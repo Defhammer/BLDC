@@ -1,9 +1,5 @@
 #include "MCPWM.h"
-#ifndef P33FXXXX_H_
-#define P33FXXXX_H_
-#include <p33Fxxxx.h>
-#endif
-
+#include <xc.h>
 void IntMCPWM()
 {
     P1TCONbits.PTOPS = 0;   			// Choose PWM time base 1:1 postscale

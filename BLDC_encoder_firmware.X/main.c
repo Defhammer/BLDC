@@ -168,7 +168,7 @@ int main(void) {
     while(1)
     {
         
-        if (POSCNT <=comPos[i] && POSCNT >= (comPos[i]-100)){
+        if (POSCNT >=comPos[i] && POSCNT < (comPos[i]+5 )){
             PosCnt = comSeq[i];
             P1OVDCON = commutate[PosCnt]; 
             i++;
@@ -180,7 +180,7 @@ int main(void) {
         
         
        
-           printf("pos %d tgt %d\r\n", (int)POSCNT,comPos[i]);  
+           //printf("pos %d tgt %d\r\n", (int)POSCNT,comPos[i]);  
         
        
             

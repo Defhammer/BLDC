@@ -172,6 +172,7 @@ int main(void) {
             PosCnt = comSeq[i];
             P1OVDCON = commutate[PosCnt]; 
             i++;
+            
         }
         
         if (i == 41){

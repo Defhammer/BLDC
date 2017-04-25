@@ -115,7 +115,7 @@ const signed int comPos4096[]={
 };
 
 //the is the commutation sequence for the CCW direction
-int comSeq[]={
+const int comSeq[]={
     1, 6, 5, 4, 3, 2,
     1, 6, 5, 4, 3, 2,
     1, 6, 5, 4, 3, 2,
@@ -125,7 +125,6 @@ int comSeq[]={
     1, 6, 5, 4, 3, 2,
 };
 
-
 unsigned int hallValue;
 unsigned int i = 0;
 unsigned int j = 1;
@@ -134,7 +133,8 @@ const unsigned int maxComm =850;
 //printf("Encoder count: %d\r\n", (int)POSCNT); 
 
 int main(void) {
-    int comPos[] =comPos2048[];
+   const int *comPos = comPos2048;
+
     OSCTUNbits.TUN=0b010011;
     CLKDIVbits.PLLPRE =0;
     PLLFBDbits.PLLDIV =0x26;
@@ -187,6 +187,7 @@ NEW MESSAGES
             PosCnt = comSeq[i];
             P1OVDCON = commutate[PosCnt]; 
             i++;
+            
         }
         
         if (i == 41){

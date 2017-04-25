@@ -1,0 +1,40 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#(c) SnapEDA 2016 (snapeda.com)
+#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
+#
+# LM2901NG
+#
+DEF LM2901NG U 0 40 Y Y 1 L N
+F0 "U" -211 759 50 H V L CNN
+F1 "LM2901NG" -155 -1167 50 H V L CNN
+F2 "DIP254P762X469-14" 0 0 50 H I L CNN
+F3 "ON Semiconductor" 0 0 50 H I L CNN "MF"
+F4 "Low Cost, 36V, Single Supply Quad Comparator (Industrial Grade) TA= -40° to +105°C" 0 0 50 H I L CNN "Description"
+F5 "0.27 USD" 0 0 50 H I L CNN "Price"
+F6 "Good" 0 0 50 H I L CNN "Availability"
+F7 "DIP-14 ON Semiconductor" 0 0 50 H I L CNN "Package"
+F8 "LM2901NG" 0 0 50 H I L CNN "MP"
+DRAW
+P 2 0 0 16 -500 600 -500 -900 N
+P 2 0 0 16 -500 -900 500 -900 N
+P 2 0 0 16 500 -900 500 600 N
+P 2 0 0 16 500 600 -500 600 N
+X VCC 3 -700 400 200 R 40 40 0 0 I 
+X -IN_1 4 -700 200 200 R 40 40 0 0 I 
+X +IN_1 5 -700 100 200 R 40 40 0 0 I 
+X +IN_2 7 -700 0 200 R 40 40 0 0 I 
+X -IN_2 6 -700 -100 200 R 40 40 0 0 I 
+X -IN_3 8 -700 -200 200 R 40 40 0 0 I 
+X +IN_3 9 -700 -300 200 R 40 40 0 0 I 
+X -IN_4 10 -700 -400 200 R 40 40 0 0 I 
+X +IN_4 11 -700 -500 200 R 40 40 0 0 I 
+X GND 12 -700 -700 200 R 40 40 0 0 P 
+X OUT_1 2 700 400 200 L 40 40 0 0 O 
+X OUT_2 1 700 300 200 L 40 40 0 0 O 
+X OUT_3 14 700 200 200 L 40 40 0 0 O 
+X OUT_4 13 700 100 200 L 40 40 0 0 O 
+ENDDRAW
+ENDDEF
+#
+# End Library

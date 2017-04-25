@@ -115,7 +115,7 @@ const signed int comPos4096[]={
 };
 
 //the is the commutation sequence for the CCW direction
-const int comSeq[]={
+int comSeq[]={
     1, 6, 5, 4, 3, 2,
     1, 6, 5, 4, 3, 2,
     1, 6, 5, 4, 3, 2,
@@ -125,6 +125,7 @@ const int comSeq[]={
     1, 6, 5, 4, 3, 2,
 };
 
+
 unsigned int hallValue;
 unsigned int i = 0;
 unsigned int j = 1;
@@ -133,8 +134,7 @@ const unsigned int maxComm =850;
 //printf("Encoder count: %d\r\n", (int)POSCNT); 
 
 int main(void) {
-   const int *comPos = comPos2048;
-
+    int comPos[] =comPos2048[];
     OSCTUNbits.TUN=0b010011;
     CLKDIVbits.PLLPRE =0;
     PLLFBDbits.PLLDIV =0x26;
@@ -156,22 +156,7 @@ int main(void) {
     InitQEI(MAX_COUNT);
     InitTmr1();
     IntMCPWM();
-    P1TPER = 1200;Defhammer
-#0875
-
-da-meeting
-
-
-
-Search
-
-
-
-50+ new messages since 4:43 PM on February 13, 2017
-MARK AS READ
-LOAD MORE MESSAGES
-NEW MESSAGES
-
+    P1TPER = 1200;
     P1DC1 = 3300;
     P1DC2 = 3300;
     P1DC3 = 3300;
@@ -187,7 +172,6 @@ NEW MESSAGES
             PosCnt = comSeq[i];
             P1OVDCON = commutate[PosCnt]; 
             i++;
-            
         }
         
         if (i == 41){

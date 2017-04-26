@@ -1,4 +1,4 @@
-update=4/25/2017 9:49:08 AM
+update=4/26/2017 12:28:59 AM
 version=1
 last_client=kicad
 [pcbnew]
@@ -20,9 +20,6 @@ SolderMaskMinWidth=0.000000000000
 DrawSegmentWidth=0.200000000000
 BoardOutlineThickness=0.100000000000
 ModuleOutlineThickness=0.150000000000
-[cvpcb]
-version=1
-NetIExt=net
 [eeschema]
 version=1
 LibDir=
@@ -59,5 +56,8 @@ LibName29=valves
 LibName30=DSPIC33FJ64MC802-I_SP/DSPIC33FJ64MC802-I_SP
 LibName31=LM2901NG/LM2901NG
 LibName32=switches
+[cvpcb]
+version=1
+NetIExt=net
 [general]
 version=1

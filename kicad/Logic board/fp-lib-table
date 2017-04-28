@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name DSPIC33FJ64MC802-I_SP)(type Legacy)(uri "$(KIPRJMOD)/DSPIC33FJ64MC802-I_SP/DSPIC33FJ64MC802-I_SP.mod")(options "")(descr ""))
+)

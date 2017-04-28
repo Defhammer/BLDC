@@ -88,95 +88,41 @@
 
 */
 //the number of ppr times 2 4096*2 is 8192
-#define MAX_COUNT 8191
+//the number of ppr times 2 2048*2 is 4096
+// since the encoder starts at zero make sure to go minus 1 for ex. 8192-1 =8181
+#define MAX_COUNT 4095
+
 const unsigned int commutate[] ={0x0000,0x2001,0x2004,0x0204,0x0210,0x0810,0x0801,0x0000};
-const signed int comPos[]={
-    0,  
-    195,  
-    390,  
-    585,  
-    780,  
-    975,  
-    1170,  
-    1365,  
-    1560,  
-    1755,  
-    1950,  
-    2145,  
-    2340,  
-    2535,  
-    2730,  
-    2925,  
-    3120,  
-    3315,  
-    3510,     
-    3705,     
-    3900,     
-    4095,     
-    4290,     
-    4485,     
-    4680,     
-    4875,     
-    5070,     
-    5265,     
-    5460,     
-    5655,     
-    5850,     
-    6045,     
-    6240,     
-    6435,     
-    6630,      
-    6825,     
-    7020,     
-    7215,     
-    7410,     
-    7605,     
-    7800,     
-    7995,     
+// this is for a 2048 PPR encoder the exact increment is 97.5 
+const signed int comPos2048[]={
+    0, 97, 195, 292, 390, 487,
+    585 ,682 ,780 ,877 ,975 ,1072,
+    1170,1267,1365,1462,1560,1657,
+    1755,1852,1950,2047,2145,2242,
+    2340,2437,2535,2632,2730,2827,
+    2925,3022,3120,3217,3315,3412,
+    3510,3607,3705,3802,3900,3997,
 };
-int comSeq[]={
-    1,
-    6,
-    5,
-    4,
-    3,
-    2,
-    1,
-    6,
-    5,
-    4,
-    3,
-    2,
-    1,
-    6,
-    5,
-    4,
-    3,
-    2,
-    1,
-    6,
-    5,
-    4,
-    3,
-    2,
-    1,
-    6,
-    5,
-    4,
-    3,
-    2,
-    1,
-    6,
-    5,
-    4,
-    3,
-    2,
-    1,
-    6,
-    5,
-    4,
-    3,
-    2,
+// this is for the 4096 PPR encoder the exact increment is 195
+const signed int comPos4096[]={
+    0, 195, 390, 585, 780, 975,  
+    1170,1365,1560,1755,1950,2145,  
+    2340,2535,2730,2925,3120,3315,  
+    3510,3705,3900,4095,4290,4485,     
+    4680,4875,5070,5265,5460,5655,     
+    5850,6045,6240,6435,6630,6825,     
+    7020,7215,7410,7605,7800,7995,     
+};
+
+//the is the commutation sequence for the CCW direction
+const int comSeq[]={
+    1, 6, 5, 4, 3, 2,
+    1, 6, 5, 4, 3, 2,
+    1, 6, 5, 4, 3, 2,
+    1, 6, 5, 4, 3, 2,
+    1, 6, 5, 4, 3, 2,
+    1, 6, 5, 4, 3, 2,
+    1, 6, 5, 4, 3, 2,
 };
 
 unsigned int hallValue;
@@ -187,6 +133,8 @@ const unsigned int maxComm =850;
 //printf("Encoder count: %d\r\n", (int)POSCNT); 
 
 int main(void) {
+   const int *comPos = comPos2048;
+
     OSCTUNbits.TUN=0b010011;
     CLKDIVbits.PLLPRE =0;
     PLLFBDbits.PLLDIV =0x26;
@@ -208,7 +156,22 @@ int main(void) {
     InitQEI(MAX_COUNT);
     InitTmr1();
     IntMCPWM();
-    P1TPER = 1200;
+    P1TPER = 1200;Defhammer
+#0875
+
+da-meeting
+
+
+
+Search
+
+
+
+50+ new messages since 4:43 PM on February 13, 2017
+MARK AS READ
+LOAD MORE MESSAGES
+NEW MESSAGES
+
     P1DC1 = 3300;
     P1DC2 = 3300;
     P1DC3 = 3300;
@@ -220,10 +183,11 @@ int main(void) {
     while(1)
     {
         
-        if (POSCNT <=comPos[i] && POSCNT >= (comPos[i]-100)){
+        if (POSCNT >=comPos[i] && POSCNT < (comPos[i]+5 )){
             PosCnt = comSeq[i];
             P1OVDCON = commutate[PosCnt]; 
             i++;
+            
         }
         
         if (i == 41){
@@ -232,7 +196,7 @@ int main(void) {
         
         
        
-           printf("pos %d tgt %d\r\n", (int)POSCNT,comPos[i]);  
+           //printf("pos %d tgt %d\r\n", (int)POSCNT,comPos[i]);  
         
        
             

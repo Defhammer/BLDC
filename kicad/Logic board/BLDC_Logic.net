@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source "C:\\Users\\Michael\\Documents\\GitHub\\BLDC\\kicad\\Logic board\\BLDC_Logic.sch")
-    (date "4/27/2017 5:57:40 PM")
+    (date "4/28/2017 9:46:58 AM")
     (tool "Eeschema 4.0.6")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -181,7 +181,7 @@
       (tstamp 58FFA83B))
     (comp (ref SW1)
       (value SW_DIP_x01)
-      (footprint Buttons_Switches_THT:SW_PUSH-12mm)
+      (footprint Buttons_Switches_THT:SW_PUSH_6mm)
       (libsource (lib switches) (part SW_DIP_x01))
       (sheetpath (names /) (tstamps /))
       (tstamp 58FFC1E7))
@@ -491,10 +491,10 @@
       (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\regul.lib"))
     (library (logical DSPIC33FJ64MC802-I_SP)
       (uri "C:\\Users\\Michael\\Documents\\GitHub\\BLDC\\kicad\\Logic board\\DSPIC33FJ64MC802-I_SP\\DSPIC33FJ64MC802-I_SP.lib"))
-    (library (logical switches)
-      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\switches.lib"))
     (library (logical LM2901NG)
-      (uri "C:\\Users\\Michael\\Documents\\GitHub\\BLDC\\kicad\\Logic board\\LM2901NG\\LM2901NG.lib")))
+      (uri "C:\\Users\\Michael\\Documents\\GitHub\\BLDC\\kicad\\Logic board\\LM2901NG\\LM2901NG.lib"))
+    (library (logical switches)
+      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\switches.lib")))
   (nets
     (net (code 1) (name +5V)
       (node (ref J6) (pin 1))

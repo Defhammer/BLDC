@@ -156,7 +156,22 @@ int main(void) {
     InitQEI(MAX_COUNT);
     InitTmr1();
     IntMCPWM();
-    P1TPER = 1200;
+    P1TPER = 1200;Defhammer
+#0875
+
+da-meeting
+
+
+
+Search
+
+
+
+50+ new messages since 4:43 PM on February 13, 2017
+MARK AS READ
+LOAD MORE MESSAGES
+NEW MESSAGES
+
     P1DC1 = 3300;
     P1DC2 = 3300;
     P1DC3 = 3300;

@@ -19,12 +19,3 @@ void InitTmr1()
     T1CONbits.TON =1;  // turn on timer 1
 
 }
-/*at timer 1 interupt*/
-unsigned int timer_expired =0;
-unsigned int Counter =0;
-void __attribute__((interrupt, auto_psv)) _T1Interrupt(void)
-{
-    timer_expired = 1;
-    Counter++;
-    IFS0bits.T1IF =0;  //reset the timer interupt
-}

@@ -53,10 +53,9 @@
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
-#include "xc.h"
+#include <xc.h>
 #include <stdio.h>
 #include "MCPWM.h"
-#include "timer.h"
 #include "UART1.h"
 #include "QEI1.h"
 
@@ -145,12 +144,16 @@ int main(void) {
     RPINR14bits.QEA1R =0x07;
     RPINR14bits.QEB1R =0x08;
     RPINR15bits.INDX1R=0x09;
+   
     InitUART1();
-    InitQEI(MAX_COUNT);
-    InitTmr1();
+    //InitQEI(MAX_COUNT);
+    //InitTmr1();
     IntMCPWM();
     P1TPER = 1200;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/dev
 
     P1DC1 = 3300;
     P1DC2 = 3300;

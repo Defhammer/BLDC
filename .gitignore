@@ -1,0 +1,8 @@
+*.o
+*.elf
+BLDC_encoder_firmware.X/build/default/production/main.o
+*.o
+BLDC_encoder_firmware.X/build/default/production/main.o
+BLDC_encoder_firmware.X/build/default/production/QEI1.o
+*.d
+*.map

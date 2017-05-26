@@ -41,7 +41,7 @@ QEICONbits.POSRES = 1; // Index pulse resets position counter
 DFLTCONbits.CEID = 1; // Count error interrupts disabled
 DFLTCONbits.QEOUT = 1; // Digital filters output enabled for QEn pins
 DFLTCONbits.QECK = 5; // 1:64 clock divide for digital filter for QEn
-//MAXCNT = maxCnt;      
+MAXCNT = maxCnt;      
 POSCNT = 0; // Reset position counter
 QEICONbits.QEIM = 6; // X4 mode with position counter reset by Index
 return;

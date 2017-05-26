@@ -4,13 +4,13 @@
 #include <p33Fxxxx.h>
 #endif
 
-void IntMCPWM()
+void IntMCPWM(int pwmBasePeriod)
 {
     P1TCONbits.PTOPS = 0;   			// Choose PWM time base 1:1 postscale
     P1TCONbits.PTCKPS = 0;  			// Choose PWM time base 1:1 prescale
-    P1TCONbits.PTMOD = 2;                       // Choose Center Aligned PWM with
+    P1TCONbits.PTMOD = 0b00;                       // Choose edge Aligned PWM
 
-    P1TPER = 4000;
+    P1TPER = pwmBasePeriod;
     //set the output PINs to PWM
     PWM1CON1bits.PEN1L = 1;
     PWM1CON1bits.PEN1H = 1;

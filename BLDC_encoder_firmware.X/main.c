@@ -90,21 +90,13 @@
 //the number of ppr times 2 4096*2 is 8192
 //the number of ppr times 2 2048*2 is 4096
 // since the encoder starts at zero make sure to go minus 1 for ex. 8192-1 =8181
-#define MAX_COUNT 4095
+#define MAX_COUNT 8191
 
 const unsigned int commutate[] ={0x0000,0x2001,0x2004,0x0204,0x0210,0x0810,0x0801,0x0000};
 // this is for a 2048 PPR encoder the exact increment is 97.5 
-const signed int comPos2048[]={
-    0, 97, 195, 292, 390, 487,
-    585 ,682 ,780 ,877 ,975 ,1072,
-    1170,1267,1365,1462,1560,1657,
-    1755,1852,1950,2047,2145,2242,
-    2340,2437,2535,2632,2730,2827,
-    2925,3022,3120,3217,3315,3412,
-    3510,3607,3705,3802,3900,3997,
-};
+
 // this is for the 4096 PPR encoder the exact increment is 195
-const signed int comPos4096[]={
+const signed int comPos[]={
     0, 195, 390, 585, 780, 975,  
     1170,1365,1560,1755,1950,2145,  
     2340,2535,2730,2925,3120,3315,  
@@ -130,10 +122,11 @@ unsigned int i = 0;
 unsigned int j = 1;
 unsigned int interval =4000;
 const unsigned int maxComm =850;
-//printf("Encoder count: %d\r\n", (int)POSCNT); 
+
+
 
 int main(void) {
-   const int *comPos = comPos2048;
+   const int *comPos = comPos;
 
     OSCTUNbits.TUN=0b010011;
     CLKDIVbits.PLLPRE =0;
@@ -142,13 +135,13 @@ int main(void) {
     TRISA=0xFFFF;
     AD1PCFGL =0x0000;
     TRISB =0x0000;
-    TRISBbits.TRISB0=1;
+    TRISBbits.TRISB2 = 1;
     TRISBbits.TRISB7 = 1;
     TRISBbits.TRISB8 = 1;
     TRISBbits.TRISB9 = 1;
       
-    RPINR18bits.U1RXR=0x00;
-    RPOR0bits.RP1R = 0x03;
+    RPINR18bits.U1RXR = 0x03;
+    RPOR1bits.RP2R = 0x03;
     RPINR14bits.QEA1R =0x07;
     RPINR14bits.QEB1R =0x08;
     RPINR15bits.INDX1R=0x09;
@@ -156,34 +149,21 @@ int main(void) {
     InitQEI(MAX_COUNT);
     InitTmr1();
     IntMCPWM();
-    P1TPER = 1200;Defhammer
-#0875
+    P1TPER = 1200;
 
-da-meeting
-
-
-
-Search
-
-
-
-50+ new messages since 4:43 PM on February 13, 2017
-MARK AS READ
-LOAD MORE MESSAGES
-NEW MESSAGES
 
     P1DC1 = 3300;
     P1DC2 = 3300;
     P1DC3 = 3300;
-    P1OVDCON = commutate[7];
-    printf("Encoder count: %d\r\n", (int)POSCNT);
-    printf("commutate count%d\r\n", i);
+    P1OVDCON = commutate[0];
+   // printf("Encoder count: %d\r\n", (int)POSCNT);
+    //printf("commutate count%d\r\n", i);
    
     int PosCnt =0;
     while(1)
     {
         
-        if (POSCNT >=comPos[i] && POSCNT < (comPos[i]+5 )){
+        /*if (POSCNT ==comPos[i] ){
             PosCnt = comSeq[i];
             P1OVDCON = commutate[PosCnt]; 
             i++;
@@ -193,20 +173,20 @@ NEW MESSAGES
         if (i == 41){
             i=0;
         }
-        
+        */
         
        
-           //printf("pos %d tgt %d\r\n", (int)POSCNT,comPos[i]);  
+         //  printf("pos %d tgt %d\r\n", (int)POSCNT,comPos[i]);  
         
        
             
-        /*if(timer_expired && Counter == interval)
+        if(timer_expired && Counter == interval)
         {
             timer_expired =0;
             Counter = 0;
              i++;
             P1OVDCON = commutate[i];
-            printf("commutate count: %d\r\n", i);
+            //printf("commutate count: %d\r\n", i);
             if (i>=6)
             i=0;
             interval--;
@@ -217,7 +197,7 @@ NEW MESSAGES
             printf("Encoder count: %d\r\n", (int)POSCNT);
           
         }
-        */
+        
         //printf("%d\r\n", (int)POSCNT); 
     }
 }

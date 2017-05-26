@@ -138,12 +138,12 @@ Program Memory  [Origin = 0x200, Length = 0xaa00]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0xf68          0x171c  (5916)
-.const                      0x1168               0x136           0x1d1  (465)
-.text                       0x129e               0x21a           0x327  (807)
-.dinit                      0x14b8                0xcc           0x132  (306)
-.text                       0x1584                0x46            0x69  (105)
+.const                      0x1168                0xce           0x135  (309)
+.text                       0x1236               0x1fe           0x2fd  (765)
+.dinit                      0x1434                0xcc           0x132  (306)
+.text                       0x1500                0x46            0x69  (105)
 
-                 Total program memory used (bytes):         0x1daf  (7599) 11%
+                 Total program memory used (bytes):         0x1ce9  (7401) 11%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0xfc]
@@ -256,30 +256,29 @@ External Symbols in Program Memory (by address):
                   0x0010ac                  ___divdi3
                   0x00110c                  ___moddi3
                   0x001168                  _commutate
-                  0x001178                  _comPos2048
-                  0x0011cc                  _comPos4096
-                  0x001220                  _comSeq
-                  0x001274                  _maxComm
-                  0x00129e                  _InitTmr1
-                  0x0012be                  __T1Interrupt
-                  0x0012dc                  __U1RXInterrupt
-                  0x0012ec                  __U1TXInterrupt
-                  0x0012f4                  _InitUART1
-                  0x001354                  _InitQEI
-                  0x001390                  _PositionCalculation
-                  0x0013c0                  _main
-                  0x001584                  _IntMCPWM
+                  0x001178                  _comPos
+                  0x0011cc                  _comSeq
+                  0x001220                  _maxComm
+                  0x001236                  _InitTmr1
+                  0x001256                  __T1Interrupt
+                  0x001274                  __U1RXInterrupt
+                  0x001284                  __U1TXInterrupt
+                  0x00128c                  _InitUART1
+                  0x0012ec                  _InitQEI
+                  0x001324                  _PositionCalculation
+                  0x001354                  _main
+                  0x001500                  _IntMCPWM
                   0xf80000                  __FBS.sec
                   0xf80002                  __FSS.sec
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x001354                  _InitQEI
-                  0x00129e                  _InitTmr1
-                  0x0012f4                  _InitUART1
-                  0x001584                  _IntMCPWM
-                  0x001390                  _PositionCalculation
+                  0x0012ec                  _InitQEI
+                  0x001236                  _InitTmr1
+                  0x00128c                  _InitUART1
+                  0x001500                  _IntMCPWM
+                  0x001324                  _PositionCalculation
                   0x000dde                  __Atexit
                   0x000ca8                  __Closreg
                   0x000d6a                  __DNKfflush
@@ -291,9 +290,9 @@ External Symbols in Program Memory (by name):
                   0x000f14                  __Getmem
                   0x0008ca                  __Litob
                   0x000b28                  __Puttxt
-                  0x0012be                  __T1Interrupt
-                  0x0012dc                  __U1RXInterrupt
-                  0x0012ec                  __U1TXInterrupt
+                  0x001256                  __T1Interrupt
+                  0x001274                  __U1RXInterrupt
+                  0x001284                  __U1TXInterrupt
                   0x000ca0                  __Vacopy
                   0x0003e6                  ___Printf_cdnopuxX
                   0x00054a                  ___Putfld_cdnopuxX
@@ -313,16 +312,15 @@ External Symbols in Program Memory (by name):
                   0x0003d6                  __printf_cdnopuxX
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x001178                  _comPos2048
-                  0x0011cc                  _comPos4096
-                  0x001220                  _comSeq
+                  0x001178                  _comPos
+                  0x0011cc                  _comSeq
                   0x001168                  _commutate
                   0x000cba                  _fclose
                   0x000df6                  _free
                   0x00075a                  _fwrite
-                  0x0013c0                  _main
+                  0x001354                  _main
                   0x000ec0                  _malloc
-                  0x001274                  _maxComm
+                  0x001220                  _maxComm
                   0x000802                  _memchr
                   0x000816                  _memcpy
                   0x000824                  _strchr
@@ -552,10 +550,10 @@ __FUID3
  *(.comment)
  .comment         0x000000         0x5e c:/program files (x86)/microchip/xc16/v1.30/bin/bin/../../lib\liblega-c-elf.a(xfiles.XX_eo)
 
-.debug_info       0x000000       0x21c9
+.debug_info       0x000000       0x217e
  *(.debug_info)
- .debug_info      0x000000       0x1dd1 build/default/production/main.o
- .debug_info      0x001dd1        0x3f8 build/default/production/MCPWM.o
+ .debug_info      0x000000       0x1d86 build/default/production/main.o
+ .debug_info      0x001d86        0x3f8 build/default/production/MCPWM.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x235
@@ -563,20 +561,20 @@ __FUID3
  .debug_abbrev    0x000000        0x17f build/default/production/main.o
  .debug_abbrev    0x00017f         0xb6 build/default/production/MCPWM.o
 
-.debug_line       0x000000        0x1dd
+.debug_line       0x000000        0x1db
  *(.debug_line)
- .debug_line      0x000000        0x139 build/default/production/main.o
- .debug_line      0x000139         0xa4 build/default/production/MCPWM.o
+ .debug_line      0x000000        0x137 build/default/production/main.o
+ .debug_line      0x000137         0xa4 build/default/production/MCPWM.o
 
 .debug_frame      0x000000        0x140
  *(.debug_frame)
  .debug_frame     0x000000        0x110 build/default/production/main.o
  .debug_frame     0x000110         0x30 build/default/production/MCPWM.o
 
-.debug_str        0x000000        0x10b
+.debug_str        0x000000        0x109
  *(.debug_str)
- .debug_str       0x000000         0xea build/default/production/main.o
- .debug_str       0x0000ea         0x21 build/default/production/MCPWM.o
+ .debug_str       0x000000         0xe8 build/default/production/main.o
+ .debug_str       0x0000e8         0x21 build/default/production/MCPWM.o
 
 .debug_loc
  *(.debug_loc)
@@ -585,12 +583,12 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x152
+                  0x000000        0x13f
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000        0x133 build/default/production/main.o
+                  0x000000        0x120 build/default/production/main.o
  .debug_pubnames
-                  0x000133         0x1f build/default/production/MCPWM.o
+                  0x000120         0x1f build/default/production/MCPWM.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1841,28 +1839,27 @@ __c30_signature
  .ivt._U1TXInterrupt
                   0x00002c          0x2 build/default/production/main.o
 
-.const              0x9168        0x136 load address 0x001168  
- .const             0x9168        0x136 build/default/production/main.o
+.const              0x9168         0xce load address 0x001168  
+ .const             0x9168         0xce build/default/production/main.o
                     0x9168                  _commutate
-                    0x9178                  _comPos2048
-                    0x91cc                  _comPos4096
-                    0x9220                  _comSeq
-                    0x9274                  _maxComm
+                    0x9178                  _comPos
+                    0x91cc                  _comSeq
+                    0x9220                  _maxComm
 
-.text             0x00129e        0x21a
- .text            0x00129e        0x21a build/default/production/main.o
-                  0x00129e                  _InitTmr1
-                  0x0012be                  __T1Interrupt
-                  0x0012dc                  __U1RXInterrupt
-                  0x0012ec                  __U1TXInterrupt
-                  0x0012f4                  _InitUART1
-                  0x001354                  _InitQEI
-                  0x001390                  _PositionCalculation
-                  0x0013c0                  _main
+.text             0x001236        0x1fe
+ .text            0x001236        0x1fe build/default/production/main.o
+                  0x001236                  _InitTmr1
+                  0x001256                  __T1Interrupt
+                  0x001274                  __U1RXInterrupt
+                  0x001284                  __U1TXInterrupt
+                  0x00128c                  _InitUART1
+                  0x0012ec                  _InitQEI
+                  0x001324                  _PositionCalculation
+                  0x001354                  _main
 
-.dinit            0x0014b8         0xcc
- .dinit           0x0014b8         0xcc data_init
+.dinit            0x001434         0xcc
+ .dinit           0x001434         0xcc data_init
 
-.text             0x001584         0x46
- .text            0x001584         0x46 build/default/production/MCPWM.o
-                  0x001584                  _IntMCPWM
+.text             0x001500         0x46
+ .text            0x001500         0x46 build/default/production/MCPWM.o
+                  0x001500                  _IntMCPWM

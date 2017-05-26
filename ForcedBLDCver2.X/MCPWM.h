@@ -5,5 +5,5 @@
 
 #define PWMPERIOD 3000
 
-void IntMCPWM();
+void IntMCPWM(int pwmBasePeriod);
 

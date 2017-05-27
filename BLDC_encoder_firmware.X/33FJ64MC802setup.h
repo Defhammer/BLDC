@@ -81,7 +81,7 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-void initClk () {
+void InitClk () {
     
     CLKDIVbits.PLLPRE = 6;
     PLLFBDbits.PLLDIV=78;
@@ -92,8 +92,20 @@ void initClk () {
     
     
 }
+void InitIC ()
+{
+    // Initialize the Input Capture Module
+    IC1CONbits.ICM = 0b00; // Disable Input Capture 1 module
+    IC1CONbits.ICTMR = 1; // Select Timer2 as the IC1 Time base
+    IC1CONbits.ICI = 0b01; // Interrupt on every second capture event
+    IC1CONbits.ICM = 0b011; // Generate capture event on every Rising edge
+    // Enable Capture Interrupt And Timer2
+    IPC0bits.IC1IP = 1; // Setup IC1 interrupt priority level
+    IFS0bits.IC1IF = 0; // Clear IC1 Interrupt Status Flag
+    IEC0bits.IC1IE = 1; // Enable IC1 interrupt
+}
 
-void initIO() {
+void InitIO() {
     /*contains the  overall pinout as defined in the PCB design.*/
     
     //RAx defined as input RBx defined as output

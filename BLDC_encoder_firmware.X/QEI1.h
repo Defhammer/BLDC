@@ -35,7 +35,7 @@ extern int Speed;
 void InitQEI(int maxCnt);
 void PositionCalculation(void);
 
-<<<<<<< HEAD
+
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 void InitQEI(int maxCnt)
@@ -68,6 +68,7 @@ AngPos[0] = (unsigned int)(((unsigned long)POSCNTcopy * 2048)/125);
 // 0 <= POSCNT <= 1999 to 0 <= AngPos <= 32752
 return;
 }
-=======
-void __attribute__((interrupt, no_auto_psv)) _T1Interrupt (void);
->>>>>>> origin/dev
+
+void __attribute__((interrupt, no_auto_psv)) _QEI1Interrupt (void);
+
+

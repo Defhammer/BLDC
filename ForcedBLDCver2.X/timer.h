@@ -20,6 +20,10 @@ void InitTmr1()
 
 }
 
+void InitTmr2()
+{
+    
+}
 
 /*at timer 1 interupt*/
 unsigned int timer_expired =0;

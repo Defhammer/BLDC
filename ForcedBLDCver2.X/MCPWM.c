@@ -22,6 +22,10 @@ void IntMCPWM(int pwmBasePeriod)
     PWM1CON1bits.PMOD1 = 0;
     PWM1CON1bits.PMOD2 = 0;
     PWM1CON1bits.PMOD3 = 0;
+    P1DTCON1bits.DTA=41; // set dead time to 6 microseconds.
+    P1DTCON1bits.DTAPS =0b11;
+    P1DTCON2=0x0000;
+    
 
     P1DC1 = 100;
     P1DC2 = 100;

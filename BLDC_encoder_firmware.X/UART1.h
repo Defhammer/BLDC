@@ -28,8 +28,7 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
+
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
@@ -66,9 +65,9 @@ void InitUART1() {
 	// Load a value into Baud Rate Generator.  Example is for 9600.
 	// See section 19.3.1 of datasheet.
 	//  U1BRG = (Fcy/(16*BaudRate))-1
-	//  U1BRG = (4M/(16*9600))-1
+	//  U1BRG = (40M/(16*9600))-1
 	//  U1BRG = 25
-	U1BRG = 261;	// 40Mhz osc, 9600 Baud
+	U1BRG = 259;	// 40Mhz osc, 9600 Baud
 
 	// Load all values in for U1STA SFR
 	U1STAbits.UTXISEL1 = 0;	//Bit15 Int when Char is transferred (1/2 config!)
@@ -93,22 +92,9 @@ void InitUART1() {
 	IEC0bits.U1TXIE = 1;	// Enable Transmit Interrupts
 	IFS0bits.U1RXIF = 0;	// Clear the Recieve Interrupt Flag
 	IEC0bits.U1RXIE = 1;	// Enable Recieve Interrupts
-
 	U1MODEbits.UARTEN = 1;	// And turn the peripheral on
 
 	U1STAbits.UTXEN = 1;
-	// I think I have the thing working now.
+	// I think I have the thing working now.1
+    
 }
-#ifdef	__cplusplus
-extern "C" {
-#endif /* __cplusplus */
-
-    // TODO If C++ is being used, regular C code needs function names to have C 
-    // linkage so the functions can be used by the c code. 
-
-#ifdef	__cplusplus
-}
-#endif /* __cplusplus */
-
-#endif	/* XC_HEADER_TEMPLATE_H */
-

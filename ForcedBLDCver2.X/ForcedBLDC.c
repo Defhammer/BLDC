@@ -7,12 +7,15 @@
 
 
 #include "xc.h"
+
 #include "33FJ64MC802setup.h"
 #include "QEI1.h"
-#include "timer.h"
 #include "MCPWM.h"
+#include "timer.h"
 #include "UART1.h"
 #include <stdio.h>
+#include "adc1.h"
+
 
     const unsigned int commutate[] ={0x0000,0x2001,0x2004,0x0204,0x0210,0x0810,0x0801,0x0000,0x0000};
     unsigned int hallValue;
